@@ -1,11 +1,8 @@
-
-
 package pointofsales;
 
 public interface DiscountStrategy {
 
     double getDiscount();
-
 
     double getPrice();
 
