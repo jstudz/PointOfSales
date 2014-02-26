@@ -37,7 +37,7 @@ public class Product {
         this.ProductCode = ProductCode;
     }
 
-    public DiscountStrategy getDiscoutStrategy() {
+    public DiscountStrategy getDiscountStrategy() {
         return discoutStrategy;
     }
 
@@ -46,4 +46,9 @@ public class Product {
     }
     
     
+    //testing the class
+//    public static void main(String[] args) {
+//        Product product = new Product(45, "Hat", "556A", new DollarsOffDiscount(10, 45, 1));
+//        System.out.println(product.getDiscountStrategy().getDiscount());
+//    }
 }
