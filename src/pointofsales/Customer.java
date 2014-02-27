@@ -3,10 +3,12 @@ package pointofsales;
 public class Customer {
     private String firstName;
     private String lastName;
+    private int customerID;
 
-    public Customer(String firstName, String lastName) {
+    public Customer(String firstName, String lastName, int customerID) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.customerID = customerID;
     }
 
     public String getFirstName() {
