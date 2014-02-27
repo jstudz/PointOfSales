@@ -2,30 +2,23 @@ package pointofsales;
 
 public class LineItem {
     private Product product;
-    private double subTotal;
+    private double quantity;
 
-    public LineItem(Product product) {
+    public LineItem(Product product, double quantity) {
         this.product = product;
+        this.quantity = quantity;
     }
 
-    public double getTotal() {
-        return getSubTotal() - getDiscountAmount();
-    }
-    
     //Calculates the Discount Amount whether or not it's a percentage or dollar
     //off
     public double getDiscountAmount () {
-        return product.getDiscountStrategy().getDiscount();
+        return product.getDiscountStrategy().getDiscount(product.getPrice(), quantity);
     }
     
     //Calculates the Subtotal, gets the quantity from the DiscountStrategy and then
     //the price from the product
     public double getSubTotal() {
-        return product.getDiscountStrategy().getQuantity() * product.getPrice();
-    }
-    
-     public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
+        return quantity * product.getPrice();
     }
      
     public Product getProduct() {
@@ -36,6 +29,13 @@ public class LineItem {
         this.product = product;
     }
     
+     public double getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(double quantity) {
+        this.quantity = quantity;
+    }
     
     //testing the class out
 //    public static void main(String[] args) {

@@ -2,17 +2,14 @@ package pointofsales;
 
 public class DollarsOffDiscount implements DiscountStrategy {
     private double dollarsOff;
-    private double price;
-    private double quantity;
 
-    public DollarsOffDiscount(double dollarsOff, double price, double quantity) {
+
+    public DollarsOffDiscount(double dollarsOff) {
         this.dollarsOff = dollarsOff;
-        this.price = price;
-        this.quantity = quantity;
     }
     
     @Override
-    public double getDiscount() {
+    public double getDiscount(double price, double quantity) {
         return dollarsOff;
     }
 
@@ -24,25 +21,7 @@ public class DollarsOffDiscount implements DiscountStrategy {
         this.dollarsOff = dollarsOff;
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public double getQuantity() {
-        return quantity;
-    }
-
-    @Override
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
+ 
     
     //testing class
 //    public static void main(String[] args) {

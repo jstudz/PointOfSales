@@ -2,17 +2,13 @@ package pointofsales;
 
 public class PercentageOffDiscount implements DiscountStrategy {
     private double percent;
-    private double price;
-    private double quantity;
 
-    public PercentageOffDiscount(double percent, double price, double quantity) {
+    public PercentageOffDiscount(double percent) {
         this.percent = percent;
-        this.price = price;
-        this.quantity = quantity;
+
     }
     
-    @Override
-    public double getDiscount() {
+    public double getDiscount(double price, double quantity) {
         return price * quantity * percent;
     }
 
@@ -24,25 +20,7 @@ public class PercentageOffDiscount implements DiscountStrategy {
         this.percent = percent;
     }
 
-    @Override
-    public double getPrice() {
-        return price;
-    }
-
-    @Override
-    public void setPrice(double price) {
-        this.price = price;
-    }
-
-    @Override
-    public double getQuantity() {
-        return quantity;
-    }
-
-    @Override
-    public void setQuantity(double quantity) {
-        this.quantity = quantity;
-    }
+ 
     
     //testing the class
 //    public static void main(String[] args) {
