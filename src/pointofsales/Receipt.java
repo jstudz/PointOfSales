@@ -16,8 +16,8 @@ public class Receipt {
     }
     
     
-    public static void main(String[] args) {
-        LineItem li = new LineItem(new Product(45, "Hat", "556A", new DollarsOffDiscount(10, 45, 1)));
-        System.out.println(li.getSubTotal());
-    }
+//    public static void main(String[] args) {
+//        LineItem li = new LineItem(new Product(45, "Hat", "556A", new DollarsOffDiscount(10, 45, 1)));
+//        System.out.println(li.getSubTotal());
+//    }
 }
