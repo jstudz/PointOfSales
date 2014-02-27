@@ -5,26 +5,19 @@ package pointofsales;
 public class Receipt {
     private LineItem[] lineItem = new LineItem[0];
 
-    public Receipt(LineItem[] lineItem) {
-        this.lineItem = lineItem;
-    }
-    
     public void addProductToTotalSale(LineItem li) {
         addItemToSaleList(li);
+        lineItem[lineItem.length - 1] = li;
     }
     
     public void addItemToSaleList(LineItem li) {
-       LineItem[] tempItemList = new LineItem[lineItem.length + 1];
+       LineItem[] tempItemList = new LineItem[1 + lineItem.length];
        
-       for (int i = 0; i < lineItem.length; i++) {
+       for (int i = 0; i < tempItemList.length; i++) {
            tempItemList[i] = lineItem[i];
        }
        
-       lineItem = new LineItem[tempItemList.length];
-       
-       for (int j = 0; j < tempItemList.length; j++) {
-           lineItem[j] = tempItemList[j];
-       }
+       lineItem = tempItemList;
     }
 
     public LineItem[] getLineItem() {
@@ -32,6 +25,9 @@ public class Receipt {
     }
     
     public static void main(String[] args) {
-        
+        Receipt newRec = new Receipt();
+        newRec.addProductToTotalSale(new LineItem(new Product(45, "456G", "hat", new DollarsOffDiscount(10)), 2));
+        System.out.println(newRec.getLineItem());
     }
+    
 }
