@@ -2,7 +2,7 @@
 
 package pointofsales;
 
-public class FakeDatabase {
+public class FakeDatabase implements DatabaseStrategy {
     private Product[] products = {
         new Product(14.99, "Green Bay Packer's Hat", "A111", new DollarsOffDiscount(2)),
         new Product(21.99, "Iron Man T-Shirt", "B222", new PercentageOffDiscount(.05)),
@@ -16,6 +16,7 @@ public class FakeDatabase {
     };
     
     
+    @Override
     public Product findProduct(String productCode) {
         Product product = null;
         
@@ -27,5 +28,12 @@ public class FakeDatabase {
                 
         }
         return product;
+    }
+    
+    @Override
+    public Customer findCustomer(int customerID) {
+        Customer customer = null;
+        
+        return customer;
     }
 }

@@ -4,6 +4,9 @@ package pointofsales;
 
 public class CashRegister {
     private Receipt receipt;
-    private Customer customer;
+    
+    public void addItemToReceipt (LineItem li) {
+        receipt.addItemToSaleList(li);
+    }
     
 }
