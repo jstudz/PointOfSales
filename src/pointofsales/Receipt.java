@@ -5,9 +5,6 @@ package pointofsales;
 public class Receipt {
     private LineItem[] lineItem = new LineItem[0];
     
-    public Receipt(LineItem[] li) {
-        this.lineItem = li;
-    }
     
     public void addItemToSaleList(LineItem li) {
        LineItem[] tempItemList = new LineItem[1 + lineItem.length];
@@ -24,10 +21,10 @@ public class Receipt {
         return lineItem;
     }
     
-//    public static void main(String[] args) {
-//        Receipt newRec = new Receipt();
-//        newRec.addProductToTotalSale(new LineItem(new Product(45, "456G", "hat", new DollarsOffDiscount(10)), 2));
-//        System.out.println(newRec.getLineItem());
-//    }
+    public static void main(String[] args) {
+        Receipt newRec = new Receipt();
+        newRec.addItemToSaleList(new LineItem(new Product(45, "456G", "hat", new DollarsOffDiscount(10)), 2));
+        System.out.println(newRec.getLineItem());
+    }
     
 }
