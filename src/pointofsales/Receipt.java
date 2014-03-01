@@ -5,15 +5,19 @@ package pointofsales;
 public class Receipt {
     private LineItem[] lineItem = new LineItem[0];
     
+    public Receipt(LineItem[] li) {
+        this.lineItem = li;
+    }
+    
     public void addItemToSaleList(LineItem li) {
        LineItem[] tempItemList = new LineItem[1 + lineItem.length];
        
-       for (int i = 0; i < tempItemList.length; i++) {
-           tempItemList[i] = lineItem[i];
-       }
+       System.arraycopy(lineItem, 0, tempItemList, 0, tempItemList.length);
        
+       tempItemList[lineItem.length - 1] = li;
        lineItem = tempItemList;
-       lineItem[lineItem.length - 1] = li;
+       
+       
     }
 
     public LineItem[] getLineItem() {
