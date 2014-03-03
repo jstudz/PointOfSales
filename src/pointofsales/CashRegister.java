@@ -12,7 +12,7 @@ public class CashRegister {
         receipt.addItemToSaleList(productCode, qty);
     }
     
-    public String getFinallSale() {
+    public String getFinalSale() {
         return receipt.getReceipt();
     }
 }

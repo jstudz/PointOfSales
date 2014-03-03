@@ -3,9 +3,9 @@ package pointofsales;
 public class Customer {
     private String firstName;
     private String lastName;
-    private int customerID;
+    private String customerID;
 
-    public Customer(String firstName, String lastName, int customerID) {
+    public Customer(String firstName, String lastName, String customerID) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.customerID = customerID;
@@ -26,6 +26,15 @@ public class Customer {
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+    }
+    
     
     
 }

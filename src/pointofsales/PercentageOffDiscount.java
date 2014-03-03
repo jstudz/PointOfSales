@@ -22,9 +22,5 @@ public class PercentageOffDiscount implements DiscountStrategy {
 
  
     
-    //testing the class
-//    public static void main(String[] args) {
-//        PercentageOffDiscount pod = new PercentageOffDiscount(.10, 20, 2);
-//        System.out.println(pod.getDiscount());
-//    }
+
 }

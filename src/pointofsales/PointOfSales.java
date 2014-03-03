@@ -1,22 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package pointofsales;
 
-/**
- *
- * @author Arthas
- */
 public class PointOfSales {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        CashRegister cr = new CashRegister();
+        
+        cr.addNewSale("100", new FakeDatabase());
+        cr.addItemToReceipt("A111", 2);
+        cr.addItemToReceipt("C333", 4);
+        System.out.println(cr.getFinalSale());
+        
+        cr.addNewSale("200", new FakeDatabase());
+        cr.addItemToReceipt("B222", 4);
+        System.out.println(cr.getFinalSale());
     }
     
 }

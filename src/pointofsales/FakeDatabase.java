@@ -12,7 +12,10 @@ public class FakeDatabase implements DatabaseStrategy {
     };
     
     private Customer[] customers = {
-        
+        new Customer("John", "Doe", "100"),
+        new Customer("Jane", "Smith", "200"),
+        new Customer("Billy", "Joel", "300"),
+        new Customer("Anna", "Faith", "400")
     };
     
     
@@ -31,9 +34,13 @@ public class FakeDatabase implements DatabaseStrategy {
     }
     
     @Override
-    public Customer findCustomer(int customerID) {
+    public Customer findCustomer(String customerID) {
         Customer customer = null;
         
+        for (Customer c: customers) {
+            if(customerID.equals(c.getCustomerID()))
+                customer = c;
+        }
         return customer;
     }
 }

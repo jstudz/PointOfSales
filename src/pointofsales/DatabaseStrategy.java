@@ -4,7 +4,7 @@ package pointofsales;
 
 public interface DatabaseStrategy {
 
-    Customer findCustomer(int customerID);
+    Customer findCustomer(String customerID);
 
     Product findProduct(String productCode);
     

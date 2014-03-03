@@ -3,13 +3,13 @@ package pointofsales;
 public class Product {
     private double price;
     private String description;
-    private String ProductCode;
+    private String productCode;
     private DiscountStrategy discoutStrategy;
 
     public Product(double price, String description, String ProductCode, DiscountStrategy discoutStrategy) {
         this.price = price;
         this.description = description;
-        this.ProductCode = ProductCode;
+        this.productCode = ProductCode;
         this.discoutStrategy = discoutStrategy;
     }
 
@@ -30,11 +30,11 @@ public class Product {
     }
 
     public String getProductCode() {
-        return ProductCode;
+        return productCode;
     }
 
     public void setProductCode(String ProductCode) {
-        this.ProductCode = ProductCode;
+        this.productCode = ProductCode;
     }
 
     public DiscountStrategy getDiscountStrategy() {
@@ -46,9 +46,5 @@ public class Product {
     }
     
     
-    //testing the class
-//    public static void main(String[] args) {
-//        Product product = new Product(45, "Hat", "556A", new DollarsOffDiscount(10, 45, 1));
-//        System.out.println(product.getDiscountStrategy().getDiscount());
-//    }
+
 }

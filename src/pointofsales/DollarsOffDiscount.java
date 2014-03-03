@@ -23,9 +23,5 @@ public class DollarsOffDiscount implements DiscountStrategy {
 
  
     
-    //testing class
-//    public static void main(String[] args) {
-//        DollarsOffDiscount dod = new DollarsOffDiscount(10, 20, 3);
-//        System.out.println(dod.getDiscount());
-//    }
+
 }
