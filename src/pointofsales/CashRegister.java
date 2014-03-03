@@ -5,8 +5,14 @@ package pointofsales;
 public class CashRegister {
     private Receipt receipt;
     
-    public void addItemToReceipt (LineItem li) {
-        receipt.addItemToSaleList(li);
+    public void addNewSale(String customerID, DatabaseStrategy dbStrat) {
+        receipt = new Receipt(customerID, dbStrat);
+    }
+    public void addItemToReceipt (String productCode, double qty) {
+        receipt.addItemToSaleList(productCode, qty);
     }
     
+    public String getFinallSale() {
+        return receipt.getReceipt();
+    }
 }
