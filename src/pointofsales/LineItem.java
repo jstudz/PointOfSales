@@ -37,11 +37,5 @@ public class LineItem {
         this.quantity = quantity;
     }
     
-    //testing the class out
-//    public static void main(String[] args) {
-//        LineItem item = new LineItem(new Product(45, "Hat", "556A", new DollarsOffDiscount(10)), 2);
-//        System.out.println(item.getSubTotal());
-//        System.out.println(item.getDiscountAmount());
-//        
-//    }
+
 }
