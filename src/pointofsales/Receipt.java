@@ -1,17 +1,25 @@
+/*
+    The receipt class is used to create the receipt based on the line item class.
+    
+*/
 package pointofsales;
-
-
 
 public class Receipt {
     private LineItem[] lineItem = new LineItem[0];
     private Customer customer;
     private DatabaseStrategy newDB;
 
+    //This consturctor uses the customerID to find the customer through the
+    //database the user chooses to use.
     public Receipt(String customerID, DatabaseStrategy newDB) {
         this.customer = newDB.findCustomer(customerID);
         this.newDB = newDB;
     }
     
+    //This method takes the product that the customer is buying and adds it
+    //to the line item array. A temporary database is created in order to
+    //copy the array over and increase the size for every item that is being
+    //purcahsed
     public void addItemToSaleList(String productCode, double quantity) {
        LineItem li = new LineItem(newDB.findProduct(productCode), quantity );
        
@@ -29,6 +37,8 @@ public class Receipt {
         return lineItem;
     }
     
+    //This method is used to take the line item array and make it into
+    //a string to output on the screen.
     public String getReceipt() {
         String items = "Welcome to Kohl's Department Store" + "\n";
         items += "\n";
@@ -54,6 +64,7 @@ public class Receipt {
         
     }
     
+    //gets the total from the line item array for the customer
     public double getFinalTotal() {
         double total = 0;
         
