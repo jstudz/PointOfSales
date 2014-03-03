@@ -1,3 +1,7 @@
+/*
+    This class is used to create customers for the database strategy. Each Customer
+    should have their own unique customerID to keep them apart from each other.
+*/
 package pointofsales;
 
 public class Customer {

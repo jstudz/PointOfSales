@@ -1,4 +1,6 @@
-
+/*
+    This discount strategy has no discount!
+*/
 
 package pointofsales;
 

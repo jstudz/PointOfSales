@@ -1,9 +1,14 @@
+/*
+    This discount strategy is the dollars off discount. A certain dollar amount
+    is discounted from the product.
+*/
 package pointofsales;
 
 public class DollarsOffDiscount implements DiscountStrategy {
     private double dollarsOff;
 
-
+    
+    //Default constructor, requires the dollar amount to be entered.
     public DollarsOffDiscount(double dollarsOff) {
         this.dollarsOff = dollarsOff;
     }

@@ -1,3 +1,7 @@
+/*
+    The product class is where the products are created. It has the price, description
+    product code as well as a discount strategy for each product.
+*/
 package pointofsales;
 
 public class Product {
@@ -6,6 +10,7 @@ public class Product {
     private String productCode;
     private DiscountStrategy discoutStrategy;
 
+    //Requires the product to have a price, description, product code, and discount strategy
     public Product(double price, String description, String ProductCode, DiscountStrategy discoutStrategy) {
         this.price = price;
         this.description = description;
