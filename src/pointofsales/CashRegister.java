@@ -8,8 +8,8 @@ public class CashRegister {
     
     //Creates a new receipt object with the customerID and the type of database
     //strategy used
-    public void addNewSale(String customerID, DatabaseStrategy dbStrat) {
-        receipt = new Receipt(customerID, dbStrat);
+    public void addNewSale(String customerID, DatabaseStrategy dbStrat, SalesTaxStrategy tax) {
+        receipt = new Receipt(customerID, dbStrat, tax);
     }
     
     //this method is used to add items to the receipt and lineitem array

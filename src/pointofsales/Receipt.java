@@ -10,13 +10,15 @@ public class Receipt {
     private LineItem[] lineItem = new LineItem[0];
     private Customer customer;
     private DatabaseStrategy newDB;
+    private SalesTaxStrategy salesTax;
     DecimalFormat numberFormat = new DecimalFormat("#.00");
     
     //This consturctor uses the customerID to find the customer through the
     //database the user chooses to use.
-    public Receipt(String customerID, DatabaseStrategy newDB) {
+    public Receipt(String customerID, DatabaseStrategy newDB, SalesTaxStrategy tax) {
         this.customer = newDB.findCustomer(customerID);
         this.newDB = newDB;
+        this.salesTax = salesTax;
     }
     
     //This method takes the product that the customer is buying and adds it
@@ -53,7 +55,7 @@ public class Receipt {
             items.append(" $" + numberFormat.format(lineItem[x].getDiscountAmount()));
             items.append("\n");
         }
-        
+        items.append("\n" + "Tax: $" + numberFormat.format(getTaxAmount()) + "\n");
         items.append("\n" + "Total Amount: $" + numberFormat.format(getFinalTotal()) + "\n");
         
         return items.toString();
@@ -67,7 +69,17 @@ public class Receipt {
         for (int x = 0; x < lineItem.length; x++) {
             total = total + lineItem[x].getSubTotal() - lineItem[x].getDiscountAmount();
         }
-        return total;
+        return total + getTaxAmount();
+    }
+    
+    public double getTaxAmount() {
+        double total = 0;
+        
+        for (int x = 0; x < lineItem.length; x++) {
+            total = total + lineItem[x].getSubTotal() - lineItem[x].getDiscountAmount();
+        }
+       return total * salesTax.getStateSalesTax();
+
     }
 
     public LineItem[] getLineItem() {
