@@ -4,11 +4,14 @@
 */
 package pointofsales;
 
+import java.text.DecimalFormat;
+
 public class Receipt {
     private LineItem[] lineItem = new LineItem[0];
     private Customer customer;
     private DatabaseStrategy newDB;
-
+    DecimalFormat numberFormat = new DecimalFormat("#.00");
+    
     //This consturctor uses the customerID to find the customer through the
     //database the user chooses to use.
     public Receipt(String customerID, DatabaseStrategy newDB) {
@@ -34,27 +37,26 @@ public class Receipt {
     //This method is used to take the line item array and make it into
     //a string to output on the screen.
     public String getReceipt() {
-        String items = "Welcome to Kohl's Department Store" + "\n";
-        items += "Thank you for shopping here, " + customer.getFirstName()
-                  + " " + customer.getLastName();
-        items += "\n";
-        items += "\n";
-        items += "Product     Price    Quantity    Subtotal   Discount" + "\n";
-        items += "----------------------------------------------------" + "\n";
+        StringBuilder items = new StringBuilder();
+        items.append("Thanks for shopping at Kohl's Department Store" + "\n");
+        items.append("Thanks for shopping " + customer.getFirstName() + " " + customer.getLastName() + " (" + customer.getCustomerID()
+              + ")");
+        items.append("\n" + "\n");
+        items.append("Product     Price    Quantity    Subtotal   Discount" + "\n" +
+    "----------------------------------------------------" + "\n");
+
         for (int x = 0; x < lineItem.length; x++) {
-            items += lineItem[x].getProduct().getDescription();
-            items += " $" + lineItem[x].getProduct().getPrice();
-            items += " " + lineItem[x].getQuantity();
-            items += " $" + lineItem[x].getSubTotal();
-            items += " $" + lineItem[x].getDiscountAmount();
-            items += "\n";
+            items.append(lineItem[x].getProduct().getDescription());
+            items.append(" $" + numberFormat.format(lineItem[x].getProduct().getPrice()));
+            items.append(" " + lineItem[x].getQuantity());
+            items.append(" $" + numberFormat.format(lineItem[x].getSubTotal()));
+            items.append(" $" + numberFormat.format(lineItem[x].getDiscountAmount()));
+            items.append("\n");
         }
-            
-        items += "\n";
-        items += "Total Amount: $" + getFinalTotal();
-        items += "\n";
         
-        return items;
+        items.append("\n" + "Total Amount: $" + numberFormat.format(getFinalTotal()) + "\n");
+        
+        return items.toString();
         
     }
     
