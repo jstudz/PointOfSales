@@ -4,6 +4,7 @@ package pointofsales;
 
 public class CashRegister {
     private Receipt receipt;
+    private ReceiptOutputStrategy ros;
     
     //Creates a new receipt object with the customerID and the type of database
     //strategy used
@@ -18,7 +19,7 @@ public class CashRegister {
     
     //this method calls the getReceipt method from the receipt class which
     //puts all of the items in the array together in a String.
-    public String outputFinalSale() {
-        return receipt.getReceipt();
+    public void outputFinalSale(ReceiptOutputStrategy ros) {
+        ros.displayReceipt(receipt);
     }
 }
