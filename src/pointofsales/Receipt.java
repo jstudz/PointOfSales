@@ -29,29 +29,22 @@ public class Receipt {
        
        tempItemList[lineItem.length] = li;
        lineItem = tempItemList;
-       
-       
-    }
-
-    public LineItem[] getLineItem() {
-        return lineItem;
     }
     
     //This method is used to take the line item array and make it into
     //a string to output on the screen.
     public String getReceipt() {
         String items = "Welcome to Kohl's Department Store" + "\n";
-        items += "\n";
-        items += "\n";
         items += "Thank you for shopping here, " + customer.getFirstName()
                   + " " + customer.getLastName();
         items += "\n";
         items += "\n";
-        items += "Product     Price    Subtotal   Discount" + "\n";
-        items += "----------------------------------------" + "\n";
+        items += "Product     Price    Quantity    Subtotal   Discount" + "\n";
+        items += "----------------------------------------------------" + "\n";
         for (int x = 0; x < lineItem.length; x++) {
             items += lineItem[x].getProduct().getDescription();
             items += " $" + lineItem[x].getProduct().getPrice();
+            items += " " + lineItem[x].getQuantity();
             items += " $" + lineItem[x].getSubTotal();
             items += " $" + lineItem[x].getDiscountAmount();
             items += "\n";
@@ -59,7 +52,8 @@ public class Receipt {
             
         items += "\n";
         items += "Total Amount: $" + getFinalTotal();
-            
+        items += "\n";
+        
         return items;
         
     }
@@ -73,7 +67,31 @@ public class Receipt {
         }
         return total;
     }
-    
 
+    public LineItem[] getLineItem() {
+        return lineItem;
+    }
+
+    public void setLineItem(LineItem[] lineItem) {
+        this.lineItem = lineItem;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public DatabaseStrategy getNewDB() {
+        return newDB;
+    }
+
+    public void setNewDB(DatabaseStrategy newDB) {
+        this.newDB = newDB;
+    }
+    
+    
     
 }
