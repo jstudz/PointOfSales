@@ -8,11 +8,11 @@ public class PointOfSales {
         cr.addNewSale("100", new FakeDatabase());
         cr.addItemToReceipt("A111", 2);
         cr.addItemToReceipt("C333", 4);
-        System.out.println(cr.getFinalSale());
+        System.out.println(cr.outputFinalSale());
         
         cr.addNewSale("200", new FakeDatabase());
         cr.addItemToReceipt("B222", 4);
-        System.out.println(cr.getFinalSale());
+        System.out.println(cr.outputFinalSale());
     }
     
 }

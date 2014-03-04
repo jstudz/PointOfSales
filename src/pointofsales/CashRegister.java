@@ -18,7 +18,7 @@ public class CashRegister {
     
     //this method calls the getReceipt method from the receipt class which
     //puts all of the items in the array together in a String.
-    public String getFinalSale() {
+    public String outputFinalSale() {
         return receipt.getReceipt();
     }
 }
