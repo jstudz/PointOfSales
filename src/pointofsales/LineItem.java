@@ -41,7 +41,13 @@ public class LineItem {
     }
 
     public void setQuantity(double quantity) {
-        this.quantity = quantity;
+        
+        if (quantity < 0) {
+            System.out.println("Quantity can never be less than 0, please reenter the quantity");
+        } else {
+            this.quantity = quantity;
+        }
+        
     }
     
 

@@ -6,7 +6,7 @@
 
 package pointofsales;
 
-public class FakeDatabase implements DatabaseStrategy {
+public class FakeDatabase implements DataAccessStrategy {
     //Product Array to hold the fake products
     private Product[] products = {
         new Product(14.99, "Green Bay Packer's Hat", "A111", new DollarsOffDiscount(2)),

@@ -5,7 +5,7 @@
 
 package pointofsales;
 
-public interface DatabaseStrategy {
+public interface DataAccessStrategy {
 
     Customer findCustomer(String customerID);
 
