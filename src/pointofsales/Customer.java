@@ -20,7 +20,11 @@ public class Customer {
     }
 
     public void setFirstName(String firstName) {
-        this.firstName = firstName;
+        if (firstName == null || firstName.length() <= 0) {
+            System.out.println("First Name cannot be empty");
+        } else {
+            this.firstName = firstName;
+        }
     }
 
     public String getLastName() {
@@ -28,7 +32,11 @@ public class Customer {
     }
 
     public void setLastName(String lastName) {
-        this.lastName = lastName;
+        if (lastName == null || lastName.length() <= 0) {
+            System.out.println("Last Name cannot be empty");
+        } else {
+            this.lastName = lastName;
+        }
     }
 
     public String getCustomerID() {
@@ -36,7 +44,11 @@ public class Customer {
     }
 
     public void setCustomerID(String customerID) {
-        this.customerID = customerID;
+        if (customerID == null || customerID.length() <= 0) {
+            System.out.println("Customer ID cannot be empty");
+        } else {
+            this.customerID = customerID;
+        }
     }
     
     
