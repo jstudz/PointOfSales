@@ -23,7 +23,11 @@ public class Product {
     }
 
     public void setPrice(double price) {
-        this.price = price;
+        if (price < 0) {
+            System.out.println("Price cannot be less than zero");
+        } else {
+            this.price = price;
+        }
     }
 
     public String getDescription() {
@@ -31,7 +35,11 @@ public class Product {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        if (description == null || description.length() <= 0) {
+            System.out.println("Description cannot be empty");
+        } else {
+            this.description = description;
+        }
     }
 
     public String getProductCode() {
@@ -39,7 +47,11 @@ public class Product {
     }
 
     public void setProductCode(String ProductCode) {
-        this.productCode = ProductCode;
+        if (productCode == null || productCode.length() <= 0) {
+            System.out.println("Product Code cannot be empty");
+        } else {
+            this.productCode = ProductCode;
+        }
     }
 
     public DiscountStrategy getDiscountStrategy() {
