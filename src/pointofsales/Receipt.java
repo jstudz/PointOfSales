@@ -82,24 +82,36 @@ public class Receipt {
         return lineItem;
     }
 
-    public void setLineItem(LineItem[] lineItem) {
-        this.lineItem = lineItem;
+    public void setLineItem(LineItem[] lineItem) throws IllegalArgumentException{
+        if (lineItem == null) {
+            throw new IllegalArgumentException("Line Item array cannot be null");
+        }else {
+            this.lineItem = lineItem;
+        }
     }
 
     public Customer getCustomer() {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
+    public void setCustomer(Customer customer) throws IllegalArgumentException{
+        if (customer == null) {
+            throw new IllegalArgumentException("Customer cannot be null");
+        }else {
+            this.customer = customer;
+        }
     }
 
     public DataAccessStrategy getNewDB() {
         return newDB;
     }
 
-    public void setNewDB(DataAccessStrategy newDB) {
-        this.newDB = newDB;
+    public void setNewDB(DataAccessStrategy newDB) throws IllegalArgumentException {
+        if (newDB == null) {
+            throw new IllegalArgumentException("Database cannot be null");
+        } else {
+            this.newDB = newDB;
+        }
     }
     
     
