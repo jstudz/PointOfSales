@@ -59,8 +59,13 @@ public class Product {
         return discoutStrategy;
     }
 
-    public void setDiscoutStrategy(DiscountStrategy discoutStrategy) {
-        this.discoutStrategy = discoutStrategy;
+    //cannot be null
+    public void setDiscoutStrategy(DiscountStrategy discoutStrategy) throws IllegalArgumentException{
+        if (discoutStrategy == null) {
+            throw new IllegalArgumentException("Discount Strategy cannot be null");
+        } else {
+            this.discoutStrategy = discoutStrategy;
+        }
     }
     
     

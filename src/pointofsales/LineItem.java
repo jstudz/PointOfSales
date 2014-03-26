@@ -32,8 +32,14 @@ public class LineItem {
         return product;
     }
 
-    public void setProduct(Product product) {
-        this.product = product;
+    //cannot be null
+    public void setProduct(Product product) throws IllegalArgumentException{
+        
+        if (product == null) {
+            throw new IllegalArgumentException("Product cannot be null");
+        } else {
+            this.product = product;
+        }
     }
     
      public double getQuantity() {

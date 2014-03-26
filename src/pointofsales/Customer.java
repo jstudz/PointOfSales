@@ -19,9 +19,9 @@ public class Customer {
         return firstName;
     }
 
-    public void setFirstName(String firstName) {
+    public void setFirstName(String firstName) throws IllegalArgumentException{
         if (firstName == null || firstName.length() <= 0) {
-            System.out.println("First Name cannot be empty");
+            throw new IllegalArgumentException("First Name cannot be empty");
         } else {
             this.firstName = firstName;
         }
@@ -31,9 +31,9 @@ public class Customer {
         return lastName;
     }
 
-    public void setLastName(String lastName) {
+    public void setLastName(String lastName) throws IllegalArgumentException{
         if (lastName == null || lastName.length() <= 0) {
-            System.out.println("Last Name cannot be empty");
+            throw new IllegalArgumentException("Last Name cannot be empty");
         } else {
             this.lastName = lastName;
         }
@@ -43,9 +43,9 @@ public class Customer {
         return customerID;
     }
 
-    public void setCustomerID(String customerID) {
+    public void setCustomerID(String customerID) throws IllegalArgumentException{
         if (customerID == null || customerID.length() <= 0) {
-            System.out.println("Customer ID cannot be empty");
+            throw new IllegalArgumentException("Customer ID cannot be empty");
         } else {
             this.customerID = customerID;
         }
