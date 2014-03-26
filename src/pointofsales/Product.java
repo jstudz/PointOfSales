@@ -22,9 +22,9 @@ public class Product {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(double price) throws IllegalArgumentException {
         if (price < 0) {
-            System.out.println("Price cannot be less than zero");
+            throw new IllegalArgumentException("Price cannot be less than zero");
         } else {
             this.price = price;
         }
@@ -34,9 +34,9 @@ public class Product {
         return description;
     }
 
-    public void setDescription(String description) {
+    public void setDescription(String description) throws IllegalArgumentException {
         if (description == null || description.length() <= 0) {
-            System.out.println("Description cannot be empty");
+            throw new IllegalArgumentException("Description cannot be empty");
         } else {
             this.description = description;
         }
@@ -46,9 +46,10 @@ public class Product {
         return productCode;
     }
 
-    public void setProductCode(String ProductCode) {
-        if (productCode == null || productCode.length() <= 0) {
-            System.out.println("Product Code cannot be empty");
+    //product code must be more than 4 characters
+    public void setProductCode(String ProductCode) throws IllegalArgumentException{
+        if (productCode == null || productCode.length() < 4) {
+            throw new IllegalArgumentException("Product Code cannot be empty");
         } else {
             this.productCode = ProductCode;
         }

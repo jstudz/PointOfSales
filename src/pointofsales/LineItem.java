@@ -40,10 +40,11 @@ public class LineItem {
         return quantity;
     }
 
-    public void setQuantity(double quantity) {
+    //cannot be less than zero
+    public void setQuantity(double quantity) throws IllegalArgumentException{
         
         if (quantity < 0) {
-            System.out.println("Quantity can never be less than 0, please reenter the quantity");
+            throw new IllegalArgumentException("Quantity can never be less than 0, please reenter the quantity");
         } else {
             this.quantity = quantity;
         }
