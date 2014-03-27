@@ -23,7 +23,7 @@ public class PercentageOffDiscount implements DiscountStrategy {
 
     public void setPercent(double percent) throws IllegalArgumentException{
         
-        if (percent <= 0) {
+        if (percent <= 0 || percent >= 1) {
             throw new IllegalArgumentException("Percentage cannot be equal to or less than 0");
         } else {
             this.percent = percent;
