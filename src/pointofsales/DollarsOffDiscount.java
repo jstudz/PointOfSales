@@ -29,6 +29,7 @@ public class DollarsOffDiscount implements DiscountStrategy {
         } else {
             this.dollarsOff = dollarsOff;
         }
+        
     }
 
  
